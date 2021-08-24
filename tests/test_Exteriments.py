@@ -1,6 +1,6 @@
 import unittest
 
-from src import Experiments
+from intocpsdtp import Experiments
 
 
 class ExperimentTest(unittest.TestCase):

@@ -6,6 +6,15 @@ name = "pypi"
 [packages]
 
 [dev-packages]
+twine = "*"
+build = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.7"
+
+[scripts]
+test="python -m unittest discover -v -s tests"
+install_build="python -m pip install --upgrade build"
+build="python -m build"
+twine_upload_test="twine upload --repository testpypi dist/*"
+twine_upload="twine upload dist/*"

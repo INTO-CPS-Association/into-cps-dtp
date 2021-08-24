@@ -11,22 +11,41 @@ import pathlib
 here = pathlib.Path(__file__).parent.resolve()
 
 # Get the long description from the README file
-long_description = (here / 'README.md').read_text(encoding='utf-8')
+long_description = (here / 'README_PYINDEX.md').read_text(encoding='utf-8')
 
 
 setup(
-    # https://packaging.python.org/specifications/core-metadata/#name
     name='into-cps-dtp',  # Required
-
-    # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.1',  # Required
-
-    # https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
+    version='0.0.3',  # Required
     long_description_content_type='text/markdown',  # Optional (see note above)
-
+    long_description=long_description,  # Optional
+    description='A utility to show basic ISO 1178-10 XML data',  # Optional
     license='INTO-CPS',
+    url='https://github.com/INTO-CPS-Association/into-cps-dtp',
+    package_dir={'': 'src'},  # Optional
+    author='INTO-CPS',
+    packages=find_packages(where='src'),  # Required
+    python_requires='>=3.7, <4',
+    keywords='digitaltwin, co-simulation',  # Optional
+    project_urls={  # Optional
+        'Bug Reports': 'https://github.com/INTO-CPS-Association/into-cps-dtp/issues',
+        'Funding': 'https://into-cps.org/',
+        'Source': 'https://github.com/INTO-CPS-Association/into-cps-dtp',
+    },
+    # https://packaging.python.org/en/latest/requirements.html
+    # install_requires=['gpiozero', 'pika', 'pyhocon','argparse'],  # Optional
 
-    # For a list of valid classifiers, see https://pypi.org/classifiers/
+    extras_require={  # Optional
+        'dev': ['check-manifest'],
+        'tests': ['coverage'],
+    },
+
+    # entry_points={  # Optional
+    #     'console_scripts': [
+    #         'cli=isoxmlviz:main',
+    #     ],
+    # },
+# For a list of valid classifiers, see https://pypi.org/classifiers/
     classifiers=[  # Optional
         # How mature is this project? Common values are
         #   3 - Alpha
@@ -48,31 +67,5 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3 :: Only',
     ],
-
-    url='https://github.com/INTO-CPS-Association/into-cps-dtp',
-
-    package_dir={'': 'src'},  # Optional
-
-    author='INTO-CPS',
-
-
-    packages=find_packages(where='.'),  # Required
-
-    # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
-    python_requires='>=3.9, <4',
-
-    # https://packaging.python.org/en/latest/requirements.html
-    # install_requires=['gpiozero', 'pika', 'pyhocon','argparse'],  # Optional
-
-    extras_require={  # Optional
-        'dev': ['check-manifest'],
-        'tests': ['coverage'],
-    },
-
-    # entry_points={  # Optional
-    #     'console_scripts': [
-    #         'cli=isoxmlviz:main',
-    #     ],
-    # },
 
 )

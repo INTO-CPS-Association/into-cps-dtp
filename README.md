@@ -1,8 +1,20 @@
 # INTO-CPS DTP
 
-To deploy follow this: 
+## Build instructions
 
-https://packaging.python.org/guides/distributing-packages-using-setuptools/
-https://github.com/pypa/sampleproject
+If using `pipenv` the nessesary dependencies can be installed as follows:
+
+```bash
+pipenv install --dev
+```
+To build the tool use
+```bash
+pipenv run build
+```
+To release a new version do the following:
+* `pipenv run build`
+* `pipenv run twine_upload`
+* login and allow the upload to complete
+* increment version number for next release and commit it
 
 Ask Casper for Permission / to deploy it.
